@@ -14,6 +14,10 @@ students = [
 ]
 # ???
 
+print('# Задание 1')
+from collections import Counter
+result_dict = Counter([student['first_name'] for student in students])
+[print(f"{name}: {result_dict[name]}") for name in result_dict]
 
 # Задание 2
 # Дан список учеников, нужно вывести самое часто повторящееся имя
@@ -27,6 +31,9 @@ students = [
     {'first_name': 'Оля'},
 ]
 # ???
+print('# Задание 2')
+from collections import Counter
+print('Самое частое имя среди учеников:', Counter([student['first_name'] for student in students]).most_common(1)[0][0])
 
 
 # Задание 3
@@ -52,6 +59,10 @@ school_students = [
     ],
 ]
 # ???
+print('# Задание 3')
+from collections import Counter
+for klass in school_students:
+    print('Самое частое имя среди учеников:', Counter([student['first_name'] for student in klass]).most_common(1)[0][0])
 
 
 # Задание 4
@@ -73,7 +84,16 @@ is_male = {
     'Даша': False,
 }
 # ???
-
+print('# Задание 4')
+[
+    print(
+        "Класс:", 
+        klass['class'], 
+        "девочки:", sum([int(not is_male[person]) for person in [student['first_name'] for student in klass['students']]]),
+        "мальчики:", sum([int(is_male[person]) for person in [student['first_name'] for student in klass['students']]])
+        ) 
+        for klass in school
+]
 
 # Задание 5
 # По информации о учениках разных классов нужно найти класс, в котором больше всего девочек и больше всего мальчиков
@@ -92,4 +112,27 @@ is_male = {
     'Миша': True,
 }
 # ???
+print('# Задание 5')
+school_stat = [   
+        {
+            klass['class']:
+            {
+                'girls': sum([int(not is_male[person]) for person in [student['first_name'] for student in klass['students']]]),
+                'boys': sum([int(is_male[person]) for person in [student['first_name'] for student in klass['students']]]) 
+            }
+        } for klass in school
+    ]
 
+max_girls = {'klass': '', 'count': 0}
+max_boys = {'klass': '', 'count': 0}
+for klass_stat in school_stat:
+    for klass, stat in klass_stat.items():
+        if stat['girls'] > max_girls['count']:
+            max_girls['klass'] = klass
+            max_girls['count'] = stat['girls']
+        if stat['boys'] > max_boys['count']:
+            max_boys['klass'] = klass
+            max_boys['count'] = stat['boys']
+            
+print(f"Больше всего мальчиков в классе {max_boys['klass']}")
+print(f"Больше всего девочек в классе {max_girls['klass']}")
