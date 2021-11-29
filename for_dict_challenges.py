@@ -16,8 +16,10 @@ students = [
 
 print('# Задание 1')
 from collections import Counter
-result_dict = Counter([student['first_name'] for student in students])
-[print(f"{name}: {result_dict[name]}") for name in result_dict]
+result = Counter([student['first_name'] for student in students])
+for name in result:
+    print(f"{name}: {result[name]}")
+
 
 # Задание 2
 # Дан список учеников, нужно вывести самое часто повторящееся имя
