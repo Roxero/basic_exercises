@@ -14,7 +14,7 @@ print(word.lower().count('а'))
 word = 'Архангельск'
 # ???
 print('#3 Количество гласных в слове:')
-vowels = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я']
+vowels = 'аеёиоуыэюя'
 print(sum([1 for letter in word.lower() if letter in vowels]))
 
 # Вывести количество слов в предложении

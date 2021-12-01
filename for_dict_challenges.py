@@ -119,8 +119,8 @@ school_stat = [
         {
             klass['class']:
             {
-                'girls': sum([int(not is_male[person]) for person in [student['first_name'] for student in klass['students']]]),
-                'boys': sum([int(is_male[person]) for person in [student['first_name'] for student in klass['students']]]) 
+                'girls': sum(1 for person in [student['first_name'] for student in klass['students']] if not is_male[person]),
+                'boys': sum(1 for person in [student['first_name'] for student in klass['students']] if is_male[person]) 
             }
         } for klass in school
     ]

@@ -53,8 +53,8 @@ groups = [
 ]
 # ???
 print(f'Всего {len(groups)} группы.')
-for group in enumerate(groups):
-    print(f"Группа {group[0] + 1}: {len(group[1])} ученика.")
+for idx, group in enumerate(groups, start=1):
+    print(f"Группа {idx}: {len(group)} ученика.")
 
 
 # Задание 5
@@ -70,7 +70,7 @@ groups = [
 ]
 # ???
 print('# Задание 5')
-[print(f"Группа { groups.index(group) + 1 }: { ', '.join([name for name in group]) } ") for group in groups]
+[print(f"Группа { idx }: { ', '.join([name for name in group]) } ") for idx, group in enumerate(groups, start=1)]
 
 """
 counter = 0
