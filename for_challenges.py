@@ -3,7 +3,10 @@
 
 names = ['Оля', 'Петя', 'Вася', 'Маша']
 # ???
+print('# Задание 1')
 
+for name in names:
+    print(name)
 
 # Задание 2
 # Необходимо вывести имена всех учеников из списка, рядом с именем показать количество букв в нём
@@ -13,7 +16,10 @@ names = ['Оля', 'Петя', 'Вася', 'Маша']
 
 names = ['Оля', 'Петя', 'Вася', 'Маша']
 # ???
+print('# Задание 2')
 
+for name in names:
+    print(f"{name}: {len(name)}")
 
 # Задание 3
 # Необходимо вывести имена всех учеников из списка, рядом с именем вывести пол ученика
@@ -26,6 +32,11 @@ is_male = {
 }
 names = ['Оля', 'Петя', 'Вася', 'Маша']
 # ???
+print('# Задание 3')
+
+for name in names:
+    gender = 'мужской' if is_male[name] else 'женский'
+    print(name, gender)
 
 
 # Задание 4
@@ -41,6 +52,9 @@ groups = [
     ['Оля', 'Петя', 'Гриша'],
 ]
 # ???
+print(f'Всего {len(groups)} группы.')
+for idx, group in enumerate(groups, start=1):
+    print(f"Группа {idx}: {len(group)} ученика.")
 
 
 # Задание 5
@@ -55,3 +69,15 @@ groups = [
     ['Вася', 'Маша', 'Саша', 'Женя'],
 ]
 # ???
+print('# Задание 5')
+[print(f"Группа { idx }: { ', '.join([name for name in group]) } ") for idx, group in enumerate(groups, start=1)]
+
+"""
+counter = 0
+for group in groups:
+    counter += 1
+    print(f"Группа {counter}: ", end='')
+    for pupil in group:
+        print(pupil, end=', ')
+    print()
+"""
